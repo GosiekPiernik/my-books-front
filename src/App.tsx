@@ -1,13 +1,14 @@
 import React from 'react';
-import { Header } from './components/Header/Header';
+import {BooksTable} from "./components/BooksTable/BooksTable";
+import {BooksList} from "./components/BookList/BooksList";
 
 
 export const App = () => {
-  return (
-    <header>
-      <Header/>
-    </header>
-  )
-}
+  return <div>
+      <BooksList/>
+  </div>
 
+
+
+      }
 
