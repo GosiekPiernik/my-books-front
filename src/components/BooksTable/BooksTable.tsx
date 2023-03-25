@@ -18,7 +18,9 @@ export const BooksTable = (props: Props) => (
             <td>Moja opinia</td>
         </thead>
         <tbody>
-        {props.book.map (book => <OneBookPosition book={book} key={book.id}/>)}
+        {
+            props.book.map (book => (
+                <OneBookPosition book={book} key={book.id}/>))}
         </tbody>
     </table>
 );
