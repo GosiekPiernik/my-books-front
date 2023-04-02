@@ -4,10 +4,11 @@ import {QuoteElement} from "../Quote/QuoteElement";
 
 
 export const QuotationsList = () => {
-    const [quotationsList, setQuotationsList] = useState<OneQuote[] | null >(null)
+    const [quotationsList, setQuotationsList] = useState<OneQuote[] | null>(null)
+
     useEffect(() => {
         (async () => {
-            const res = await fetch('http://localhost:3001/quotations');
+            const res = await fetch("http://localhost:3001/quotations");
             const data = await res.json();
             setQuotationsList(data.quotationsList)
         })();

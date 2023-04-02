@@ -5,21 +5,22 @@ import {OneBookPosition} from "../OneBookPositon/OneBookPosition";
 interface Props {
     book: OneBook[];
 }
+
 export const BooksTable = (props: Props) => (
 
     <table>
         <thead>
-            <td>Id</td>
-            <td>Tytuł</td>
-            <td>Autor (pierwszy autor)</td>
-            <td>Autor (drugi autor)</td>
-            <td>Rok wydania</td>
-            <td>Gatunek dominujący</td>
-            <td>Moja opinia</td>
+        <th>Tytuł</th>
+        <th>Autor (główny autor)</th>
+        <th>Rok wydania</th>
+        <th>Numer ISBN</th>
+        <th>Gatunek dominujący</th>
+        <th>Data przeczytania książki</th>
+        <th>Opinia użytkownika</th>
         </thead>
         <tbody>
         {
-            props.book.map (book => (
+            props.book.map(book => (
                 <OneBookPosition book={book} key={book.id}/>))}
         </tbody>
     </table>
