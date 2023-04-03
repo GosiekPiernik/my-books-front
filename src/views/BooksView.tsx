@@ -1,4 +1,4 @@
-import {BooksList} from "../components/BookList/BooksList";
+import {BooksList} from "../components/Books/BooksList";
 
 
 export const BooksView = () => (

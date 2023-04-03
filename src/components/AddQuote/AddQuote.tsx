@@ -28,7 +28,7 @@ export const AddQuote = () => {
                 body: JSON.stringify(addQuote)
             })
             const data: OneQuote = await res.json();
-            setResult(`Nowy cytat pochodzący z książki ${data.book} został dodany.`);
+            setResult(`Nowy cytat pochodzący z książki "${data.book}" został dodany.`);
         } finally {
             setLoading(false)
         }
@@ -48,34 +48,40 @@ export const AddQuote = () => {
     return <form onSubmit={sendForm}>
         <h2>Dodaj nowy cytat</h2>
         <p>
-            <label className = "form-label">
+            <label className="form-label">
                 Treść cytatu:
             </label>
-            <input className= "form-control"
-                type='text'
-                value={addQuote.quote}
-                onChange={event => updateQuote('quote', event.target.value)}
+            <input className="form-control"
+                   type='text'
+                   minLength={3}
+                   maxLength={300}
+                   value={addQuote.quote}
+                   onChange={event => updateQuote('quote', event.target.value)}
             />
         </p>
         <p>
-            <label className = "form-label">
+            <label className="form-label">
                 Autor:
             </label>
-            <input className = "form-control"
-                    type='text'
-                    value={addQuote.author}
-                    onChange={event => updateQuote('author', event.target.value)}
-                />
+            <input className="form-control"
+                   type='text'
+                   minLength={3}
+                   maxLength={100}
+                   value={addQuote.author}
+                   onChange={event => updateQuote('author', event.target.value)}
+            />
         </p>
         <p>
-            <label className = "form-label">
+            <label className="form-label">
                 Pochodzi z książki:
             </label>
-            <input className = "form-control"
-                    type='text'
-                    value={addQuote.book}
-                    onChange={event => updateQuote('book', event.target.value)}
-                />
+            <input className="form-control"
+                   type='text'
+                   minLength={3}
+                   maxLength={100}
+                   value={addQuote.book}
+                   onChange={event => updateQuote('book', event.target.value)}
+            />
         </p>
         <button type="submit" className="btn btn-primary">Dodaj cytat</button>
     </form>

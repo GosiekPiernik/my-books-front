@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {OneQuote} from "types";
-import {QuoteElement} from "../Quote/QuoteElement";
+import {QuoteElement} from "./QuoteElement";
 
 
 export const QuotationsList = () => {
