@@ -17,11 +17,21 @@ export const AddBook = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [result, setResult] = useState<null | string>(null)
     const updateBook = (key: string, value: any) => {
+        validateDate(value);
         setBook(book => ({
             ...book,
             [key]: value
         }));
     };
+
+    const validateDate = (userDate: Date) => {
+        const nowDate = new Date();
+        const newDate = new Date(userDate);
+
+        if (newDate >= nowDate) {
+            alert('Wybierz datę wcześniejszą niż dzisiaj');
+        }
+    }
 
     const sendForm = async (event: FormEvent) => {
         event.preventDefault()
@@ -49,77 +59,78 @@ export const AddBook = () => {
     if (result !== null) {
         return <div>
             <p>{result}</p>
-            <button onClick={() => setResult(null)}>Dodaj kolejną ksiażkę</button>
+            <button  className="btn btn-primary" onClick={() => setResult(null)}>Dodaj kolejną ksiażkę</button>
         </div>
     }
     return <form onSubmit={sendForm}>
         <div>
             <h2>Dodaj książkę do swojej biblioteczki</h2>
             <p>
-                <label>Tytuł książki
+                <label className="form-label">Tytuł książki
                     <br/>
-                    <input
-                        type="text"
-                        value={book.title}
-                        onChange={event => updateBook('title', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="text"
+                    value={book.title}
+                    onChange={event => updateBook('title', event.target.value)}/>
             </p>
             <p>
-                <label>Autor (główny autor)
+                <label className="form-label">Autor (główny autor)
                     <br/>
-                    <input
-                        type="text"
-                        value={book.mainAuthor}
-                        onChange={event => updateBook('mainAuthor', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="text"
+                    value={book.mainAuthor}
+                    onChange={event => updateBook('mainAuthor', event.target.value)}/>
             </p>
             <p>
-                <label>Rok wydania ksiązki
+                <label className="form-label">Rok wydania ksiązki
                     <br/>
-                    <input
-                        type="number"
-                        value={book.publishedDate}
-                        onChange={event => updateBook('publishedDate', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="number"
+                    value={book.publishedDate}
+                    onChange={event => updateBook('publishedDate', event.target.value)}/>
             </p>
             <p>
-                <label>Numer ISBN
+                <label className="form-label">Numer ISBN
                     <br/>
-                    <input
-                        type="number"
-                        value={book.ISBNNumber}
-                        onChange={event => updateBook('ISBNNumber', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="number"
+                    value={book.ISBNNumber}
+                    maxLength={13}
+                    onChange={event => updateBook('ISBNNumber', event.target.value)}/>
             </p>
             <p>
-                <label>Gatunek dominujący
+                <label className="form-label">Gatunek dominujący
                     <br/>
-                    <input
-                        type="text"
-                        value={book.type}
-                        onChange={event => updateBook('type', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="text"
+                    value={book.type}
+                    onChange={event => updateBook('type', event.target.value)}/>
             </p>
             <p>
-                <label>Rok, w którym przeczytałaś(-łeś) tę książkę
+                <label className="form-label">Rok, w którym przeczytałaś(-łeś) tę książkę
                     <br/>
-                    <input
-                        type="date"
-                        value={book.dateOfReading.toString()}
-                        onChange={event => updateBook('dateOfReading', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="date"
+                    value={book.dateOfReading.toString()}
+                    onChange={event => updateBook('dateOfReading', event.target.value)}/>
             </p>
             <p>
-                <label>Ocena książki w skali 1-5 (gdzie 1-do kitu, 5-ekstra!)
+                <label className="form-label">Ocena książki w skali 1-5 (gdzie 1-do kitu, 5-ekstra!)
                     <br/>
-                    <input
-                        type="number" max="5"
-                        value={book.opinion}
-                        onChange={event => updateBook('opinion', event.target.value)}/>
                 </label>
+                <input className="form-control"
+                    type="number" max="5"
+                    value={book.opinion}
+                    onChange={event => updateBook('opinion', event.target.value)}/>
             </p>
 
-            <button type="submit">Dodaj książkę</button>
+            <button className="btn btn-primary" type="submit">Dodaj książkę</button>
         </div>
     </form>
 }

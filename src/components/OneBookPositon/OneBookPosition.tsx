@@ -13,7 +13,11 @@ export const OneBookPosition = (props: Props) => (
         <td>{props.book.publishedDate}</td>
         <td>{props.book.ISBNNumber}</td>
         <td>{props.book.type}</td>
-        <td>{props.book.dateOfReading.toString()}</td>
+        <td>
+            {new Date(props.book.dateOfReading).getDate()}.
+            {new Date(props.book.dateOfReading).getMonth()}.
+            {new Date(props.book.dateOfReading).getFullYear()}
+        </td>
         <td>{props.book.opinion}</td>
 
     </tr>

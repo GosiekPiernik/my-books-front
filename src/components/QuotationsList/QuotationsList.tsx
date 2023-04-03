@@ -18,8 +18,10 @@ export const QuotationsList = () => {
         return <p>Hmmmm... Coś tu pusto...Wygląda na to, że nie dodałeś jeszcze żadnego cytatu</p>
     }
 
-    return <>
-        <h1>Twoje cytaty</h1>
-        <QuoteElement quote={quotationsList}/>
-    </>
+    return (
+        <section className="mt-5">
+            <h1>Twoje cytaty</h1>
+            <QuoteElement quote={quotationsList}/>
+        </section>
+    )
 }

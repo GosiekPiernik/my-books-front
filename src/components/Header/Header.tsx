@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Header = () => {
     return (
-        <>
+        <header>
             <h1>MOJA BIBLIOTECZKA</h1>
             <Navbar bg="dark" variant="dark">
                 <Container>
@@ -17,6 +17,6 @@ export const Header = () => {
                     </Nav>
                 </Container>
             </Navbar>
-        </>
+        </header>
     )
 }

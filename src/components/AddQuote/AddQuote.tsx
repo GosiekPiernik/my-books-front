@@ -41,7 +41,7 @@ export const AddQuote = () => {
     if (result !== null) {
         return <div>
             <p>{result}</p>
-            <button onClick={() => setResult(null)}> Dodaj nowy cytat</button>
+            <button className="btn btn-primary" onClick={() => setResult(null)}> Dodaj nowy cytat</button>
         </div>
     }
 
@@ -50,34 +50,34 @@ export const AddQuote = () => {
         <p>
             <label className = "form-label">
                 Treść cytatu:
-                <input className= "form-control"
-                    type='text'
-                    value={addQuote.quote}
-                    onChange={event => updateQuote('quote', event.target.value)}
-                />
             </label>
+            <input className= "form-control"
+                type='text'
+                value={addQuote.quote}
+                onChange={event => updateQuote('quote', event.target.value)}
+            />
         </p>
         <p>
             <label className = "form-label">
                 Autor:
-                <input className = "form-label"
+            </label>
+            <input className = "form-control"
                     type='text'
                     value={addQuote.author}
                     onChange={event => updateQuote('author', event.target.value)}
                 />
-            </label>
         </p>
         <p>
             <label className = "form-label">
                 Pochodzi z książki:
-                <input className = "form-label"
+            </label>
+            <input className = "form-control"
                     type='text'
                     value={addQuote.book}
                     onChange={event => updateQuote('book', event.target.value)}
                 />
-            </label>
         </p>
-        <button type="submit">Dodaj cytat</button>
+        <button type="submit" className="btn btn-primary">Dodaj cytat</button>
     </form>
 
 }
