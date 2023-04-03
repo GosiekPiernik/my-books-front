@@ -59,7 +59,8 @@ export const AddBook = () => {
     if (result !== null) {
         return <div>
             <p>{result}</p>
-            <button  className="btn btn-primary" onClick={() => setResult(null)}>Dodaj kolejną ksiażkę</button>
+            <button className="btn btn-primary" onClick={() => setResult(null)}>Dodaj kolejną ksiażkę</button>
+
         </div>
     }
     return <form onSubmit={sendForm}>
@@ -70,64 +71,65 @@ export const AddBook = () => {
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="text"
-                    value={book.title}
-                    onChange={event => updateBook('title', event.target.value)}/>
+                       type="text"
+                       value={book.title}
+                       onChange={event => updateBook('title', event.target.value)}/>
             </p>
             <p>
                 <label className="form-label">Autor (główny autor)
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="text"
-                    value={book.mainAuthor}
-                    onChange={event => updateBook('mainAuthor', event.target.value)}/>
+                       type="text"
+                       value={book.mainAuthor}
+                       onChange={event => updateBook('mainAuthor', event.target.value)}/>
             </p>
             <p>
                 <label className="form-label">Rok wydania ksiązki
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="number"
-                    value={book.publishedDate}
-                    onChange={event => updateBook('publishedDate', event.target.value)}/>
+                       type="number"
+                       max="2023"
+                       value={book.publishedDate}
+                       onChange={event => updateBook('publishedDate', event.target.value)}/>
             </p>
             <p>
                 <label className="form-label">Numer ISBN
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="number"
-                    value={book.ISBNNumber}
-                    maxLength={13}
-                    onChange={event => updateBook('ISBNNumber', event.target.value)}/>
+                       type="number"
+                       value={book.ISBNNumber}
+                       maxLength={13}
+                       onChange={event => updateBook('ISBNNumber', event.target.value)}/>
             </p>
             <p>
                 <label className="form-label">Gatunek dominujący
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="text"
-                    value={book.type}
-                    onChange={event => updateBook('type', event.target.value)}/>
+                       type="text"
+                       value={book.type}
+                       onChange={event => updateBook('type', event.target.value)}/>
             </p>
             <p>
                 <label className="form-label">Rok, w którym przeczytałaś(-łeś) tę książkę
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="date"
-                    value={book.dateOfReading.toString()}
-                    onChange={event => updateBook('dateOfReading', event.target.value)}/>
+                       type="date"
+                       value={book.dateOfReading.toString()}
+                       onChange={event => updateBook('dateOfReading', event.target.value)}/>
             </p>
             <p>
                 <label className="form-label">Ocena książki w skali 1-5 (gdzie 1-do kitu, 5-ekstra!)
                     <br/>
                 </label>
                 <input className="form-control"
-                    type="number" max="5"
-                    value={book.opinion}
-                    onChange={event => updateBook('opinion', event.target.value)}/>
+                       type="number" min="1" max="5"
+                       value={book.opinion}
+                       onChange={event => updateBook('opinion', event.target.value)}/>
             </p>
 
             <button className="btn btn-primary" type="submit">Dodaj książkę</button>
