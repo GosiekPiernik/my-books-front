@@ -41,6 +41,7 @@ export const OneBookPosition = (props: Props) => {
                 {new Date(props.book.dateOfReading).getFullYear()}
             </td>
             <td>{props.book.opinion}</td>
+            <td><a href={`https://isbnsearch.org/isbn/${props.book.ISBNNumber}`}>Dowiedz się więcej</a></td>
             <td>
                 <button type="button" className=" btn btn-outline-dark" onClick={deleteBook}>Usuń książkę</button>
             </td>

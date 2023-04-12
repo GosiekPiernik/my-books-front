@@ -18,6 +18,7 @@ export const BooksTable = (props: Props) => (
             <th>Gatunek dominujący</th>
             <th>Data przeczytania książki</th>
             <th>Opinia użytkownika</th>
+            <th>Dowiedz się więcej</th>
             <th>Usuń książkę</th>
             </thead>
             <tbody>

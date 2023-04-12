@@ -24,6 +24,6 @@ export const BooksList = () => {
 
     return <>
         <h2>Moje książki</h2>
-        <BooksTable book={booksList} onChange = {refreshBookList}/>
+        <BooksTable book={booksList} onChange={refreshBookList}/>
     </>;
 };

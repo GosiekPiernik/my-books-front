@@ -57,6 +57,7 @@ export const AddQuote = () => {
                    maxLength={300}
                    value={addQuote.quote}
                    onChange={event => updateQuote('quote', event.target.value)}
+                   required
             />
         </p>
         <p>
@@ -69,6 +70,7 @@ export const AddQuote = () => {
                    maxLength={100}
                    value={addQuote.author}
                    onChange={event => updateQuote('author', event.target.value)}
+                   required
             />
         </p>
         <p>
@@ -81,6 +83,7 @@ export const AddQuote = () => {
                    maxLength={100}
                    value={addQuote.book}
                    onChange={event => updateQuote('book', event.target.value)}
+                   required
             />
         </p>
         <button type="submit" className="btn btn-primary">Dodaj cytat</button>
